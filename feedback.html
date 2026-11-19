@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Smart Vaijapur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>SMART VAIJAPUR</h1>
+    <p>Citizen Feedback</p>
+</header>
+
+<section>
+    <h2>Give Your Feedback</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    <form method="POST" action="/feedback">
+        <label>Complaint ID</label>
+        <input type="number" name="complaint_id"
+               placeholder="Enter Complaint ID" required>
+
+        <label>Rating</label>
+        <select name="rating" required>
+            <option value="">Select Rating</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+        </select>
+
+        <label>Your Feedback</label>
+        <textarea name="feedback_text"
+                  placeholder="Write your feedback" required></textarea>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Smart Vaijapur</p>
+</footer>
+
+</body>
+</html>
