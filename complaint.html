@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Registration - Smart Vaijapur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>SMART VAIJAPUR</h1>
+    <p>Public Grievance Management System</p>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/complaint">Complaint</a>
+    <a href="/tracking">Track Complaint</a>
+    <a href="/notifications">Notifications</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<section class="auth-section">
+    <div class="auth-card">
+
+        <h2>Register Your Complaint</h2>
+        <p class="auth-description">
+            Submit your public grievance online.
+        </p>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST" action="/complaint"
+              enctype="multipart/form-data">
+
+            <label>Complaint Category</label>
+            <select name="category" required>
+                <option value="">Select Category</option>
+                <option value="Road Problem">Road Problem</option>
+                <option value="Water Supply">Water Supply</option>
+                <option value="Street Light">Street Light</option>
+                <option value="Garbage Problem">Garbage Problem</option>
+                <option value="Drainage Problem">Drainage Problem</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label>Complaint Description</label>
+            <textarea name="description"
+                      rows="5"
+                      placeholder="Describe your problem"
+                      required></textarea>
+
+            <label>Location</label>
+            <input type="text"
+                   name="location"
+                   placeholder="Enter your location"
+                   required>
+
+            <label>Upload Complaint Photo</label>
+            <input type="file"
+                   name="photo"
+                   accept=".jpg,.jpeg,.png">
+
+            <button type="submit" class="auth-button">
+                Submit Complaint
+            </button>
+
+        </form>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Smart Vaijapur</p>
+    <p>Vaijapur Nagar Parishad</p>
+</footer>
+
+</body>
+</html>
