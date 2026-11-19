@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - Smart Vaijapur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="main-header">
+    <h1>SMART VAIJAPUR</h1>
+    <p>Public Grievance Management System</p>
+</header>
+
+<main class="auth-section">
+    <div class="auth-card">
+        <h2>My Notifications</h2>
+        <p class="auth-description">
+            Check the latest updates about your complaints.
+        </p>
+
+        {% if notifications %}
+            {% for notification in notifications %}
+                <div class="complaint-card">
+                    <p>{{ notification.message }}</p>
+                    <small>{{ notification.created_at }}</small>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No notifications available.</p>
+        {% endif %}
+
+        <a href="{{ url_for('index') }}" class="auth-link">
+            Back to Home
+        </a>
+    </div>
+</main>
+
+</body>
+</html>

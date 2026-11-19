@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Login - Smart Vaijapur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>SMART VAIJAPUR</h1>
+    <p>Citizen Login Portal</p>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+</nav>
+
+<section class="auth-section">
+    <div class="auth-card">
+
+        <h2>Citizen Login</h2>
+        <p class="auth-description">Login to manage your complaints.</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST" action="/login">
+
+            <label>Email Address</label>
+            <input type="email" name="email"
+                   placeholder="Enter your registered email" required>
+
+            <label>Password</label>
+            <input type="password" name="password"
+                   placeholder="Enter your password" required>
+
+            <button type="submit" class="auth-button">
+                Login
+            </button>
+
+        </form>
+
+        <p class="auth-link">
+            New Citizen?
+            <a href="/register">Create Account</a>
+        </p>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Smart Vaijapur</p>
+    <p>Public Grievance Management System</p>
+</footer>
+
+</body>
+</html>
