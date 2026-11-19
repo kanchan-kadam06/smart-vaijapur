@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Feedback - Smart Vaijapur</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <h1>SMART VAIJAPUR</h1>
+    <p>Admin Feedback Dashboard</p>
+</header>
+
+<nav>
+    <a href="/admin">Dashboard</a>
+    <a href="/admin/feedback">View Feedback</a>
+    <a href="/admin/logout">Logout</a>
+</nav>
+
+<section>
+
+    <h2>Citizen Feedback</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <p class="message">{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    {% if feedback_list %}
+
+        {% for item in feedback_list %}
+
+        <div class="complaint-card">
+
+            <h3>Feedback ID: {{ item.feedback_id }}</h3>
+
+            <p><b>Complaint ID:</b> {{ item.complaint_id }}</p>
+
+            <p><b>Citizen Name:</b> {{ item.full_name }}</p>
+
+            <p><b>Mobile:</b> {{ item.mobile }}</p>
+
+            <p><b>Category:</b> {{ item.category }}</p>
+
+            <p><b>Rating:</b> {{ item.rating }}</p>
+
+            <p><b>Feedback:</b> {{ item.feedback_text }}</p>
+
+        </div>
+
+        <hr>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>No feedback available.</p>
+
+    {% endif %}
+
+</section>
+
+<footer>
+    <p>© 2026 Smart Vaijapur</p>
+</footer>
+
+</body>
+</html>
