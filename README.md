@@ -1,2 +1,2 @@
-# AI-Smart-Grievance
-My first repository on github
+# smart vaijapur
+My first project on github
