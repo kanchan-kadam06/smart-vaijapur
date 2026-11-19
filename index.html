@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Vaijapur - Public Grievance Management System</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="main-header">
+
+    <h1>SMART VAIJAPUR</h1>
+
+    <p>Public Grievance Management System</p>
+
+    <p>Digital Complaint Management</p>
+
+</header>
+
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="/">Home</a>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+    <a href="/complaint">Complaint</a>
+    <a href="/tracking">Tracking</a>
+    <a href="/admin/login">Admin</a>
+    <a href="/feedback">Feedback</a>
+    <a href="{{url_for('notifications')}}">Notifications</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+
+    <div class="hero-content">
+
+        <h2>Welcome to Smart Vaijapur</h2>
+
+        <h3>Your Voice, Our Responsibility!</h3>
+
+        <p>
+            Smart Vaijapur is a digital platform designed
+            to help citizens register public complaints
+            and track their complaint status online.
+        </p>
+
+        <p>
+            Connect with Vaijapur Nagar Parishad
+            through a simple and transparent system.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/register" class="main-btn">
+                Get Started
+            </a>
+
+            <a href="/tracking" class="second-btn">
+                Track Complaint
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES SECTION -->
+<section class="services-section">
+
+    <h2>Our Services</h2>
+
+    <p class="section-description">
+        Access public services easily through our online platform.
+    </p>
+
+    <div class="service-container">
+
+        <div class="service-card">
+
+            <div class="service-icon">👤</div>
+
+            <h3>Citizen Registration</h3>
+
+            <p>
+                Create your account and access
+                online complaint services.
+            </p>
+
+            <a href="/register">Register Now</a>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">📝</div>
+
+            <h3>Online Complaint</h3>
+
+            <p>
+                Submit complaints related to
+                water supply, roads and sanitation.
+            </p>
+
+            <a href="/complaint">Submit Complaint</a>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">🔍</div>
+
+            <h3>Track Complaint</h3>
+
+            <p>
+                Check the current status of
+                your registered complaint.
+            </p>
+
+            <a href="/tracking">Track Now</a>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="service-icon">⭐</div>
+
+            <h3>Citizen Feedback</h3>
+
+            <p>
+                Share your experience and
+                provide feedback about services.
+            </p>
+
+            <a href="/feedback">Give Feedback</a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHY SMART VAIJAPUR -->
+<section class="about-section">
+
+    <h2>Why Smart Vaijapur?</h2>
+
+    <div class="about-container">
+
+        <div>
+            <h3>24×7 Access</h3>
+            <p>Register complaints online at any time.</p>
+        </div>
+
+        <div>
+            <h3>Easy Tracking</h3>
+            <p>Check complaint status using Complaint ID.</p>
+        </div>
+
+        <div>
+            <h3>Transparency</h3>
+            <p>Get updates about complaint progress.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CALL TO ACTION -->
+<section class="cta-section">
+
+    <h2>Have a Public Complaint?</h2>
+
+    <p>
+        Register your complaint online
+        and help us improve Vaijapur.
+    </p>
+
+    <a href="/login" class="main-btn">
+        Login to Continue
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="main-footer">
+
+    <h3>SMART VAIJAPUR</h3>
+
+    <p>Public Grievance Management System</p>
+
+    <p>Vaijapur Nagar Parishad</p>
+
+    <p>© 2026 Smart Vaijapur. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
