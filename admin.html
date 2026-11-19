@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Smart Vaijapur</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="main-header">
+    <h1>SMART VAIJAPUR</h1>
+    <p>Admin Dashboard - Public Grievance Management System</p>
+</header>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <a href="/admin">Dashboard</a>
+    <a href="/admin/feedback">View Feedback</a>
+    <a href="/admin/logout">Logout</a>
+</nav>
+
+<!-- DASHBOARD -->
+
+<main>
+
+    <h2 style="text-align:center; margin-top:30px;">
+        Admin Dashboard
+    </h2>
+
+    <!-- FLASH MESSAGES -->
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class="flash-message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- STATISTICS -->
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h3>Total Complaints</h3>
+            <p>{{ stats.total }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Pending</h3>
+            <p>{{ stats.pending }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>In Progress</h3>
+            <p>{{ stats.in_progress }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Resolved</h3>
+            <p>{{ stats.resolved }}</p>
+        </div>
+
+    </div>
+
+    <!-- COMPLAINT LIST -->
+
+    <section>
+
+        <h2 style="text-align:center; color:#123b70;">
+            Manage Citizen Complaints
+        </h2>
+
+        {% if complaints %}
+
+            {% for complaint in complaints %}
+
+                <div class="complaint-card">
+
+                    <h3>
+                        Complaint ID:
+                        {{ complaint.complaint_id }}
+                    </h3>
+
+                    <p>
+                        <strong>Citizen Name:</strong>
+                        {{ complaint.full_name }}
+                    </p>
+
+                    <p>
+                        <strong>Mobile:</strong>
+                        {{ complaint.mobile }}
+                    </p>
+
+                    <p>
+                        <strong>Category:</strong>
+                        {{ complaint.category }}
+                    </p>
+
+                    <p>
+                        <strong>Description:</strong>
+                        {{ complaint.description }}
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong>
+                        {{ complaint.location }}
+                    </p>
+
+                    <!-- COMPLAINT PHOTO -->
+
+                    <div class="complaint-photo">
+
+                        <h4>Complaint Photo:</h4>
+
+                        {% if complaint.photo %}
+
+                            <img
+                                src="{{ url_for('static', filename=complaint.photo) }}"
+                                alt="Complaint Photo"
+                                style="width:250px; max-width:100%; border-radius:10px; margin-top:10px;">
+
+                        {% else %}
+
+                            <p>No Photo Uploaded</p>
+
+                        {% endif %}
+
+                    </div>
+
+                    <!-- CURRENT STATUS -->
+
+                    <p style="margin-top:15px;">
+                        <strong>Current Status:</strong>
+                        {{ complaint.status }}
+                    </p>
+
+                    <!-- UPDATE STATUS -->
+
+                    <form
+                        action="{{ url_for('update_status', complaint_id=complaint.complaint_id) }}"
+                        method="POST">
+
+                        <label>Update Complaint Status</label>
+
+                        <select name="status" required>
+
+                            <option value="Pending"
+                                {% if complaint.status == 'Pending' %}selected{% endif %}>
+                                Pending
+                            </option>
+
+                            <option value="In Progress"
+                                {% if complaint.status == 'In Progress' %}selected{% endif %}>
+                                In Progress
+                            </option>
+
+                            <option value="Resolved"
+                                {% if complaint.status == 'Resolved' %}selected{% endif %}>
+                                Resolved
+                            </option>
+
+                        </select>
+
+                        <button type="submit">
+                            Update Status
+                        </button>
+
+                    </form>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p style="text-align:center;">
+                No Complaints Available.
+            </p>
+
+        {% endif %}
+
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer class="main-footer">
+    <p>
+        © 2026 Smart Vaijapur |
+        Admin Dashboard
+    </p>
+</footer>
+
+</body>
+</html>
