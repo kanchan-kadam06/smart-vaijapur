@@ -1,0 +1,518 @@
+/* =========================================
+   SMART VAIJAPUR
+   PROFESSIONAL COMPLETE WEBSITE CSS
+========================================= */
+
+/* 1. GLOBAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6fa;
+    color: #263445;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* 2. COMMON HEADER */
+
+header,
+.main-header {
+    width: 100%;
+    background: linear-gradient(135deg, #102b49, #174c83);
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1,
+.main-header h1 {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+header p,
+.main-header p {
+    color: #e4edf8;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* 3. NAVIGATION BAR */
+
+nav {
+    width: 100%;
+    background: #102b49;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 12px;
+    gap: 8px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #287bc1;
+    color: white;
+}
+
+/* 4. COMMON PAGE SECTION */
+
+section {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 25px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* 5. ALL PAGE HEADINGS */
+
+h2 {
+    color: #123b70;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+h3 {
+    color: #123b70;
+    margin-bottom: 12px;
+}
+
+/* 6. HOME PAGE HERO */
+
+.hero-section {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 65px 25px;
+    border-radius: 14px;
+    background: linear-gradient(120deg, #123b70, #0877c9);
+    color: white;
+    text-align: center;
+}
+
+.hero-content h2 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    color: white;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* 7. BUTTONS */
+
+button,
+.btn {
+    background: #0877c9;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+button:hover,
+.btn:hover {
+    background: #064f91;
+}
+
+/* 8. SERVICES */
+
+.service-container,
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+.service-card {
+    background: white;
+    padding: 28px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+}
+
+.service-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.service-card h3 {
+    color: #123b70;
+    margin-bottom: 10px;
+}
+
+/* 9. ABOUT SECTION */
+
+.about-container {
+    max-width: 900px;
+    margin: 35px auto;
+    padding: 25px;
+    text-align: center;
+}
+
+.about-container h2 {
+    color: #123b70;
+    margin-bottom: 15px;
+}
+
+/* 10. CTA SECTION */
+
+.cta-section {
+    background: #123b70;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 30px;
+}
+
+/* 11. FORM DESIGN */
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    color: #263c55;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 18px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    background: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0877c9;
+    box-shadow: 0 0 0 2px rgba(8,119,201,0.10);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* 12. LOGIN AND REGISTRATION */
+
+.auth-section {
+    width: 100%;
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.auth-card {
+    background: white;
+    width: 100%;
+    padding: 38px;
+    border-radius: 14px;
+    border-top: 5px solid #123b70;
+    box-shadow: 0 5px 22px rgba(0,0,0,0.10);
+}
+
+.auth-card h2 {
+    text-align: center;
+    color: #123b70;
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.auth-description {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.auth-card input,
+.auth-card select,
+.auth-card textarea {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.auth-button {
+    width: 100%;
+    background: #123b70;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-button:hover {
+    background: #0877c9;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 18px;
+}
+
+.auth-link a {
+    color: #0877c9;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* 13. COMPLAINT CARDS */
+
+.complaint-card {
+    background: white;
+    padding: 24px;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.complaint-card h3 {
+    color: #123b70;
+    margin-bottom: 15px;
+}
+
+.complaint-card p {
+    margin-bottom: 10px;
+}
+
+/* 14. ADMIN DASHBOARD */
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 25px auto;
+    max-width: 1100px;
+    padding: 15px;
+}
+
+.stat-card {
+    background: white;
+    padding: 22px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-bottom: 4px solid #0877c9;
+}
+
+.stat-card h3 {
+    color: #123b70;
+    font-size: 16px;
+}
+
+.stat-card p {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0877c9;
+}
+
+/* 15. TABLE DESIGN */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin: 20px auto;
+}
+
+th {
+    background: #123b70;
+    color: white;
+    padding: 13px;
+    text-align: center;
+}
+
+td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #f1f5f9;
+}
+
+/* 16. FLASH MESSAGES */
+
+.flash-message {
+    background: #dff5e5;
+    color: #176b35;
+    padding: 12px;
+    margin: 15px auto;
+    max-width: 800px;
+    border-radius: 7px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 17. NOTIFICATION DESIGN */
+
+.notification-card {
+    background: white;
+    padding: 20px;
+    margin: 15px auto;
+    border-left: 5px solid #0877c9;
+    border-radius: 9px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+
+/* 18. FOOTER */
+
+footer,
+.main-footer {
+    background: #102b49;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 35px;
+}
+
+footer p,
+.main-footer p {
+    color: white;
+}
+
+/* 19. IMAGE DESIGN */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.complaint-card img {
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* 20. RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-content h2 {
+        font-size: 27px;
+    }
+
+    .auth-card {
+        padding: 25px;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header h1,
+    .main-header h1 {
+        font-size: 24px;
+    }
+
+    nav {
+        gap: 3px;
+    }
+
+    nav a {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .service-container,
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .auth-section {
+        margin: 20px auto;
+        padding: 12px;
+    }
+
+    .auth-card {
+        padding: 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 24px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}
