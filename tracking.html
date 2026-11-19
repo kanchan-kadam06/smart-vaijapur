@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Complaint - Smart Vaijapur</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>SMART VAIJAPUR</h1>
+    <p>Complaint Tracking Portal</p>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/complaint">Register Complaint</a>
+    <a href="/tracking">Track Complaint</a>
+    <a href="/feedback">Feedback</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<section class="auth-section">
+    <div class="auth-card">
+
+        <h2>Track Your Complaint</h2>
+        <p class="auth-description">
+            Enter your Complaint ID to check the current status.
+        </p>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('tracking') }}">
+
+            <label>Complaint ID</label>
+            <input type="number"
+                   name="complaint_id"
+                   placeholder="Enter your Complaint ID"
+                   min="1"
+                   required>
+
+            <button type="submit" class="auth-button">
+                Track Complaint
+            </button>
+
+        </form>
+
+        {% if complaint %}
+
+        <div class="complaint-card">
+
+            <h3>Complaint Details</h3>
+
+            <p><strong>Complaint ID:</strong>
+                {{ complaint.complaint_id }}</p>
+
+            <p><strong>Category:</strong>
+                {{ complaint.category }}</p>
+
+            <p><strong>Description:</strong>
+                {{ complaint.description }}</p>
+
+            <p><strong>Location:</strong>
+                {{ complaint.location }}</p>
+
+            <p><strong>Status:</strong>
+                {{ complaint.status or 'Pending' }}</p>
+
+            {% if complaint.photo %}
+                <p><strong>Complaint Photo:</strong></p>
+                <img
+                    src="{{ url_for('static', filename=complaint.photo) }}"
+                    alt="Complaint Photo"
+                    style="width:220px; max-width:100%; border-radius:10px;">
+            {% endif %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Smart Vaijapur</p>
+    <p>Vaijapur Nagar Parishad</p>
+</footer>
+
+</body>
+</html>

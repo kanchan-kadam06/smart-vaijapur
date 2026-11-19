@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen Registration - Smart Vaijapur</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>SMART VAIJAPUR</h1>
+    <p>Citizen Registration Portal</p>
+</header>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/register">Register</a>
+    <a href="/login">Login</a>
+</nav>
+
+<section class="auth-section">
+    <div class="auth-card">
+
+        <h2>Create Your Account</h2>
+        <p class="auth-description">Register to access online public services.</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST" action="/register">
+
+            <label>Full Name</label>
+            <input type="text" name="full_name"
+                   placeholder="Enter your full name" required>
+
+            <label>Mobile Number</label>
+            <input type="tel" name="mobile"
+                   placeholder="Enter 10 digit mobile number"
+                   maxlength="10" required>
+
+            <label>Email Address</label>
+            <input type="email" name="email"
+                   placeholder="Enter your email" required>
+
+            <label>Password</label>
+            <input type="password" name="password"
+                   placeholder="Create password (minimum 8 characters)"
+                   minlength="8" required>
+
+            <button type="submit" class="auth-button">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="auth-link">
+            Already have an account?
+            <a href="/login">Login Here</a>
+        </p>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Smart Vaijapur</p>
+    <p>Vaijapur Nagar Parishad</p>
+</footer>
+
+</body>
+</html>
